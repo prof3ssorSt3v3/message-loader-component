@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messages While Loading</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="./message-loader.js" type="module"></script>
+    <script>
+      let loader;
+      document.addEventListener('DOMContentLoaded', () => {
+        loader = document.querySelector('message-loader');
+        loader.addMessage('Folding the parachutes');
+        loader.addMessage('Licking the ice cream');
+        // console.log(loader.messages);
+        // loader.swapMessage();
+        pretendToLoad();
+
+        document.querySelector('button').addEventListener('click', function () {
+          pretendToLoad();
+        });
+      });
+
+      function pretendToLoad() {
+        loader.showLoader();
+        setTimeout(function () {
+          loader.hideLoader();
+        }, 12345);
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Main Heading</h1>
+    </header>
+    <main>
+      <h2>Webpage waiting for API Data</h2>
+      <h3>And Other Asynchronous Things</h3>
+      <p><button>Click to Fake Load more Stuff</button></p>
+    </main>
+    <message-loader theme="standard">
+      <ul slot="messages">
+        <li>Facetiming with Skype over Zoom</li>
+        <li>Cutting the cheese</li>
+        <li>Thumbing the drives</li>
+        <li>Counting the cucumbers</li>
+        <li>Pinging the servers</li>
+        <li>Milking the Unicorns</li>
+        <li>Billing the clients</li>
+        <li>Decorating the network</li>
+        <li>Validating the HTML</li>
+        <li>Blaming the users</li>
+        <li>Installing the browsers</li>
+        <li>Icing the cake</li>
+        <li>Pressing the paninis</li>
+        <li>Hiding the malware</li>
+        <li>Injecting the virus</li>
+        <li>Backing up the cache</li>
+      </ul>
+    </message-loader>
+  </body>
+</html>
